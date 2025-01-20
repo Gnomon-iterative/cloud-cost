@@ -1,7 +1,8 @@
 metadata:
   annotations:
-    team: data-insights  # Updated to match your actual team name
-    source-code: cloud-cost  # Corrected to match the repository name exactly
+    team: data-insights  # Team that owns this namespace
+    source-code: cloud-cost  # Repository containing the source code
+    workflow-trigger: true  # Trigger workflow
   name: test-namespace  # Unique namespace name
 
 spec:
