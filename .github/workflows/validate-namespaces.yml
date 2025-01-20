@@ -17,9 +17,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v39
+        with:
+          files: |
+            namespaces/**.yaml
+            namespaces/**.yml
+            
       - name: Run Team Validator
+        if: steps.changed-files.outputs.all_changed_files != ''
         uses: Gnomon-iterative/github-team-validator@main
         with:
-          files: ${{ github.workspace }}/namespaces/test-namespace.yaml
+          files: ${{ steps.changed-files.outputs.all_changed_files }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
