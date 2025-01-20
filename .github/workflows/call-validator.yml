@@ -9,6 +9,11 @@ on:
 permissions:
   contents: read
   packages: read
+  organization-projects: read
+  pull-requests: write  # Needed to comment on PRs
+  actions: read
+  id-token: write
+  organization: read  # This gives read:org scope
 
 jobs:
   validate:
