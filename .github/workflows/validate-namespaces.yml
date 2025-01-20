@@ -1,0 +1,25 @@
+name: Validate Namespaces
+
+on:
+  pull_request:
+    paths:
+      - 'namespaces/**.yaml'
+      - 'namespaces/**.yml'
+
+permissions:
+  contents: read
+  organization: read  # For team membership checks
+  pull-requests: write  # For commenting on PRs
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Run Team Validator
+        uses: Gnomon-iterative/github-team-validator@main
+        with:
+          files: ${{ github.workspace }}/namespaces/test-namespace.yaml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
