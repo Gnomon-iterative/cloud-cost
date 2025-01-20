@@ -1,0 +1,7 @@
+metadata:
+  annotations:
+    team: data-insights  # Updated to match your actual team name
+    source-code: cloud-cost  # Corrected to match the repository name exactly
+  name: test-namespace 
+spec:
+  # Other namespace specifications go here
