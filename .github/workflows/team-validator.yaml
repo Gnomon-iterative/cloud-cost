@@ -1,0 +1,30 @@
+name: Team Validator
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+    paths:
+      - 'namespaces/**'
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+  administration: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      
+      - name: Validate Team Membership
+        uses: Gnomon-iterative/github-team-validator@v1.0.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pr-number: ${{ github.event.pull_request.number }}
+          organization: Gnomon-iterative
