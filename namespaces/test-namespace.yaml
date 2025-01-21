@@ -5,4 +5,4 @@ metadata:
   annotations:
     team: data-insights 
     source-code: https://github.com/Gnomon-iterative/cloud-cost
-  # Add comment to trigger workflow
+  # Testing workflow trigger with pull_request_target
