@@ -3,5 +3,5 @@ kind: Namespace
 metadata:
   name: test-namespace
   annotations:
-    team: data-insights
+    team: data-insights 
     source-code: https://github.com/Gnomon-iterative/cloud-cost
