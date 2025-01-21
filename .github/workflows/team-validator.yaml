@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Validate Team Membership
-        uses: Gnomon-iterative/github-team-validator@v1.0.0
+        uses: Gnomon-iterative/github-team-validator@v1.0.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           pr-number: ${{ github.event.pull_request.number }}
