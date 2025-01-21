@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: test-namespace 
+  name: test-namespace
   annotations:
     team: data-insights 
     source-code: https://github.com/Gnomon-iterative/cloud-cost
