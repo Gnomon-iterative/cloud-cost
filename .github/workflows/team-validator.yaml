@@ -1,0 +1,26 @@
+name: Team Validator
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'namespaces/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+
+      - name: Run Team Validator
+        uses: Gnomon-iterative/github-team-validator@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pr-number: ${{ github.event.pull_request.number }}
+          organization: 'Gnomon-iterative'
